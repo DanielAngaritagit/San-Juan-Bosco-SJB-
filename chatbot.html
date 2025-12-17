@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Colegio San Juan Bosco Girón</title>
+    <link rel="stylesheet" href="style/chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="logomain" title="Ir a inicio">
+                <img src="multimedia/pagina_principal/escudo.png" alt="Logo Colegio San Juan Bosco">
+            </a>
+            <div class="header-text">
+                <h1>Colegio San Juan Bosco Girón</h1>
+                <p class="subtitle">Chatbot de Información Institucional</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    ¡Hola! Soy el asistente virtual del Colegio San Juan Bosco Girón. ¿En qué puedo ayudarte hoy?
+                </div>
+            </div>
+            <div class="message bot-message">
+                <div class="message-content">
+                    Puedes preguntarme sobre: admisiones, programas académicos, horarios, actividades extracurriculares, contacto y más.
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-options">
+            <button class="quick-option" data-question="¿Cuáles son los requisitos de admisión?">Admisiones</button>
+            <button class="quick-option" data-question="¿Qué programas académicos ofrecen?">Programas académicos</button>
+            <button class="quick-option" data-question="¿Cuáles son los horarios de atención?">Horarios</button>
+            <button class="quick-option" data-question="¿Cómo puedo contactar al colegio?">Contacto</button>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." autocomplete="off">
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Colegio San Juan Bosco Girón - Todos los derechos reservados
+            Programado por: Andrea Gabriela Jaimes Oviedo y Keiner Daniel Bautista Angarita
+        </p>
+    </footer>
+
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

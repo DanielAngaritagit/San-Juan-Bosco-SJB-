@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer Contraseña</title>
+    <link rel="stylesheet" href="style/iniciar.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-img">
+            <img src="multimedia/inicio_sesion/escudo.png" alt="Logo Colegio San Juan Bosco" />
+        </div>
+        <h1 class="main-title">RESTABLECER CONTRASEÑA</h1>
+    </div>
+    <main class="login-container">
+        <form id="resetForm" novalidate>
+            <input type="hidden" id="token" name="token">
+            <div class="form-group visible">
+                <label for="nueva_contrasena">Nueva Contraseña</label>
+                <input type="password" id="nueva_contrasena" name="nueva_contrasena" required autocomplete="new-password">
+            </div>
+            <div class="form-group visible">
+                <label for="confirmar_contrasena">Confirmar Contraseña</label>
+                <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required autocomplete="new-password">
+            </div>
+            <button type="submit" class="login-btn visible">Restablecer Contraseña</button>
+            <div class="status-message" id="statusMessage" role="alert"></div>
+        </form>
+    </main>
+    <script>
+    // Obtener token de la URL
+    function getToken() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('token') || '';
+    }
+    document.getElementById('token').value = getToken();
+
+    document.getElementById('resetForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const token = document.getElementById('token').value;
+        const nueva = document.getElementById('nueva_contrasena').value;
+        const confirmar = document.getElementById('confirmar_contrasena').value;
+        const statusMessage = document.getElementById('statusMessage');
+        statusMessage.textContent = '';
+        if (!nueva || !confirmar) {
+            statusMessage.textContent = 'Completa ambos campos.';
+            statusMessage.style.color = 'red';
+            return;
+        }
+        if (nueva !== confirmar) {
+            statusMessage.textContent = 'Las contraseñas no coinciden.';
+            statusMessage.style.color = 'red';
+            return;
+        }
+        try {
+            const res = await fetch('api/reset_directo.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token, nueva_contrasena: nueva })
+            });
+            const data = await res.json();
+            statusMessage.textContent = data.message;
+            statusMessage.style.color = data.success ? 'green' : 'red';
+        } catch (err) {
+            statusMessage.textContent = 'Error de conexión. Intenta de nuevo.';
+            statusMessage.style.color = 'red';
+        }
+    });
+    </script>
+</body>
+</html>

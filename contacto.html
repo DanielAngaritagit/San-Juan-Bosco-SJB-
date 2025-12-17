@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Colegio San Juan Bosco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/contacto.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fa fa-phone"></i> (7) 646 81 49 | 304 440 08 06</span>
+                    <span><i class="fa fa-envelope"></i> secretaria@colegiosanjuanboscogiron.edu.co</span>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100063647377148" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/colsanjuanbosco/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container main-header">
+            <div class="logo">
+                <img src="multimedia/pagina_principal/escudo.png" alt="Logo Colegio">
+                <div class="logo-text">
+                    <h1>Colegio San Juan Bosco</h1>
+                    <p>Girón, Santander</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fa fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="inicia.html">Iniciar Sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container contact-hero-content">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para responder a todas tus preguntas. ¡Escríbenos y te responderemos a la brevedad!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info-card">
+                <h3>Información de Contacto</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Dirección</h4>
+                        <p>Carrera 29 No. 29 - 08 Barrio Las Nieves<br>Girón, Santander</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Teléfono</h4>
+                        <p>(7) 646 81 49<br>304 440 08 06</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>secretaria@colegiosanjuanboscogiron.edu.co</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Horario de Atención</h4>
+                        <p>Lunes a Viernes: 7:00 AM - 5:00 PM<br>Sábados: 8:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d-73.1368679857349!3d7.067469994942866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f3cdfb3c7a9%3A0x7b5e7d277d6c5b7!2sCl.%2029%20%2329-8%2C%20Gir%C3%B3n%2C%20Santander!5e0!3m2!1ses!2sco!4v1643892345678!5m2!1ses!2sco" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <h3>Envíanos un Mensaje</h3>
+                
+                <div id="alert-success" class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito! Te contactaremos pronto.
+                </div>
+                
+                <div id="alert-error" class="alert alert-error">
+                    <i class="fas fa-exclamation-circle"></i> Ha ocurrido un error. Por favor, intenta nuevamente.
+                </div>
+                
+                <form id="contact-form" action="https://formspree.io/f/xjvqjvqw" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Asunto *</label>
+                        <select id="subject" name="subject" class="form-control" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="Admisiones">Admisiones e Inscripciones</option>
+                            <option value="Academico">Asuntos Académicos</option>
+                            <option value="Financiero">Asuntos Financieros</option>
+                            <option value="Actividades">Actividades Extracurriculares</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje *</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre el Colegio</h3>
+                    <p>Carrera 29 No. 29 - 08 Barrio Las Nieves<br>Girón, Santander</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Certificaciones</h3>
+                    <img src="multimedia/pagina_principal/icontec.png" alt="Certificación ICONTEC">
+                </div>
+                <div class="footer-column">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100063647377148" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/colsanjuanbosco/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                COLEGIO SAN JUAN BOSCO - Todos los derechos reservados<br>
+                Autores y Desarrolladores: Andrea Gabriela Jaimes Oviedo y Keiner Daniel Bautista Angarita
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html>
