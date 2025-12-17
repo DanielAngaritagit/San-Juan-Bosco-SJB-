@@ -1,0 +1,839 @@
+/* Estilos Generales y Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #444444;
+    --secondary-color: #2b2b2b;
+    --accent-color: #4895ef;
+    --danger-color: #f72585;
+    --success-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #4CAF50;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+
+
+/* ------------------------- Estilos Generales ------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: inherit;
+    user-select: text;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E5E5E5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ------------------------- Barra Superior ------------------------- */
+.top-bar {
+    background-color: #4CAF50;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff; /* Azul oscuro para alto contraste */
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff; /* Azul oscuro para alto contraste */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.notifications-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notifications-container button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.notifications-container button img {
+    width: 24px;
+    height: 24px;
+}
+
+.notifications-container button span {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+/* ------------------------- Menú Lateral ------------------------- */
+.menu-container {
+    width: 250px;
+    background: #fff;
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.menu-toggle {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile {
+    text-align: center;
+    padding: 25px;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain; /* Cambiado a contain para evitar recortes */
+    margin-bottom: 10px;
+    max-width: 100%; /* Asegura que la imagen se adapte */
+}
+
+.profile-info h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 15px;
+}
+
+.menu ul li a:hover {
+    background: #f5f5f5;
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+/* ------------------------- Contenido Principal ------------------------- */
+.main-container {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    flex: 1;
+    margin-top: 50px;
+    margin-bottom: 50px; /* Añadido para dejar espacio para el footer */
+}
+
+.contenedor_p {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ------------------------- Estadísticas ------------------------- */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    color: #0D164B;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.stat-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Fondo para gráfico de estadísticas */
+.bg-secondary {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.rounded.p-4 {
+    padding: 1.5rem;
+}
+
+/* ------------------------- Lista de Pendientes ------------------------- */
+.pending-list-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.pending-list-container h2 {
+    margin: 0 0 15px;
+    color: #333;
+    font-size: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-task-btn {
+    background-color: #4CAF50;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s;
+}
+
+.add-task-btn:hover {
+    background-color: #c9ab2e;
+}
+
+.search-container {
+    margin-bottom: 15px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Formulario de tareas */
+.add-task-form {
+    display: none;
+    margin: 15px 0;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.add-task-form.active {
+    display: block;
+}
+
+.task-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.save-btn {
+    color: #fff;
+    background-color: #4CAF50;
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    color: #fff;
+    background-color: #f44336;
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cancel-btn:hover {
+    background-color: #da190b;
+}
+
+/* Lista de tareas */
+.tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s;
+}
+
+.task-item:hover {
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.task-checkbox {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.task-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.task-checkbox input:checked + .checkmark {
+    background-color: #EBEBEB;
+    border-color: #ADADAD;
+}
+
+.task-checkbox input:checked + .checkmark::after {
+    content: "✓";
+    color: rgb(9, 255, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.edit-btn:hover {
+    color: #2196F3;
+}
+
+.delete-btn:hover {
+    color: #f44336;
+}
+
+.task-actions img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* ------------------------- Calendario ------------------------- */
+.calendar-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#mesAnio {
+    color: #0D164B;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.calendario {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95em;
+}
+
+.calendario th {
+    background-color: #f8f8f8;
+    color: #4a4a4a;
+    font-weight: 500;
+    padding: 12px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.calendario td {
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    vertical-align: top;
+    height: 100px;
+    position: relative;
+    text-align: left;
+}
+
+.calendario td.hoy {
+    background-color: #4895ef;
+    color: white;
+    font-weight: bold;
+}
+
+/* ------------------------- Agenda ------------------------- */
+.agenda-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.agenda-container h2 {
+    color: #0D164B;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.evento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.evento .hora {
+    font-weight: bold;
+    margin-right: 15px;
+    min-width: 60px;
+}
+
+.evento .detalles {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.evento .detalles p {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+.evento .detalles p:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.evento .detalles p:last-child {
+    color: #666;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    padding-left: 15px;
+}
+
+.event-actions button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.event-actions img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: opacity 0.2s;
+}
+
+.event-actions img:hover {
+    opacity: 0.7;
+}
+
+.evento-1 { background-color: #FFEDBF; }
+.evento-2 { background-color: #c6e2ff; }
+.evento-3 { background-color: #DBE1E4; }
+
+/* ------------------------- Footer ------------------------- */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ------------------------- Responsive Design ------------------------- */
+@media (max-width: 1200px) {
+    .contenedor_p {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu-container {
+        transform: translateX(-100%);
+        width: 280px;
+        top: 0;
+        height: 100vh;
+    }
+    
+    .menu-container.active {
+        transform: translateX(0);
+    }
+    
+    .main-container {
+        margin-left: 0;
+        transition: margin-left 0.3s ease;
+    }
+
+    .main-container.menu-open {
+        margin-left: 280px; /* Ancho del menú lateral */
+    }
+    
+    .menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px; /* Ajustar tamaño para que quepa en la top-bar */
+        height: 30px; /* Ajustar tamaño para que quepa en la top-bar */
+        padding: 3px; /* Ajustar padding */
+    }
+    .menu-toggle img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain; /* Asegura que la imagen no se recorte */
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-container, 
+    .agenda-container, 
+    .pending-list-container, 
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .task-actions {
+        opacity: 1;
+    }
+
+    .evento {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .event-actions {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        width: 85vw;
+    }
+    
+    .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .stat-value {
+        font-size: 2.2rem;
+    }
+    
+    footer {
+        font-size: 0.9em;
+    }
+    
+    .add-task-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+/* Estilos específicos para ayuda.php, complementando admin.css */
+
+.main-container .content-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px; /* Espacio al pie de página */
+}
+
+.content-container h1 {
+    color: #0D164B; /* Color de encabezado principal */
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.help-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.help-section:last-child {
+    margin-bottom: 0;
+}
+
+.help-section h2 {
+    color: #4CAF50; /* Color de acento para subencabezados */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.help-section h3 {
+    color: #0D164B; /* Color de encabezado secundario */
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.help-section p {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.help-section ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.help-section ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.help-section b {
+    font-weight: bold;
+    color: #0D164B; /* Resaltar texto en negrita */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-container .content-container {
+        padding: 20px;
+    }
+
+    .content-container h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .help-section {
+        padding: 15px;
+    }
+
+    .help-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .help-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .help-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container .content-container {
+        padding: 15px;
+    }
+
+    .content-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .help-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .help-section h3 {
+        font-size: 1.1rem;
+    }
+}

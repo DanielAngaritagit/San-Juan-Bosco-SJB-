@@ -1,0 +1,207 @@
+/* Estilos para el chatbot institucional */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1a4f8b;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* CONTENEDOR PRINCIPAL CORREGIDO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 15px; /* Espacio controlado entre logo y texto */
+    flex-wrap: wrap; /* Para responsive */
+}
+
+/* LOGO - TAMAÑO Y ESPACIADO CORREGIDO */
+.logomain img {
+    width: 70px; /* Tamaño fijo para mejor control */
+    height: 70px;
+    object-fit: contain;
+    border-radius: 0%;
+    display: block;
+    margin: 0; /* Eliminamos cualquier margen */
+}
+
+/* CONTENEDOR DE TEXTO - ALINEACIÓN CORREGIDA */
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem; /* Reducido para acercar al subtítulo */
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Quitar cualquier punto blanco de listas en el chatbot */
+.chat-container ul, .chat-container ol {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 60vh;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+}
+
+.user-message .message-content {
+    background-color: #1a4f8b;
+    color: white;
+}
+
+.bot-message .message-content {
+    background-color: #e8e8e8;
+    color: #333;
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #1a4f8b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.chat-input button:hover {
+    background-color: #153a6b;
+}
+
+.quick-options {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.quick-option {
+    background-color: #e8e8e8;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.quick-option:hover {
+    background-color: #d0d0d0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a4f8b;
+    color: white;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .header-text {
+        text-align: center;
+    }
+    
+    .chat-container {
+        margin: 1rem;
+        border-radius: 8px;
+    }
+    
+    .message-content {
+        max-width: 85%;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+}

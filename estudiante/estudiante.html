@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andrea Gabriel Jaimes Oviedo, Keiner Daniel Bautista Angarita">
+    <meta name="author" content="Colegio San Juan Bosco">
+    <meta name="copyright" content="Colegio San Juan Bosco">
+    <link rel="icon" type="image/x-icon" href="../multimedia/inicio_sesion/escudo.png">
+    <title>Calendario Académico</title>
+    <link rel="stylesheet" href="../style/estu.css">
+</head>
+<body>
+    <div class="top-bar">
+        <button id="menu-toggle" class="menu-toggle">
+            <img src="../multimedia/administrador/menu.png" alt="Menú">
+        </button>
+        <div class="notifications-container">
+            <button id="Correo">
+                <img src="../multimedia/administrador/mensaje.png" alt="Correo">
+                <span id="correo-count">0</span>
+            </button>
+            <div id="correo-panel" class="correo-panel"></div>
+            <button id="notifications-button">
+                <img src="../multimedia/administrador/campana.png" alt="Notificaciones">
+                <span id="notification-count">0</span>
+            </button>
+            <div id="notifications-panel" class="notifications-panel"></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="menu-container" id="menu-container">
+            <div class="profile">
+                <img src="../multimedia/administrador/user_default.png" alt="Usuario" id="profile-img">
+                <div class="profile-info">
+                    <h3 id="profile-name">Cargando...</h3>
+                    <p id="profile-role">Cargando...</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <ul>
+                <li><a href="admin.php" class="menu-link"><img src="../multimedia/administrador/home.png" alt=""> Inicio</a></li>
+                <li><a href="calendario.php" class="menu-link active"><img src="../multimedia/administrador/calendario.png" alt=""> Calendario</a></li>
+                <li><a href="pqrsf.php" class="menu-link"><img src="../multimedia/administrador/pqrsf.png" alt=""> PQRSF</a></li>
+                <li><a href="ayuda.php" class="menu-link"><img src="../multimedia/administrador/ayuda.png" alt=""> Ayuda</a></li>
+                <li><a href="../logout.php" class="menu-link"><img src="../multimedia/administrador/cerrar_sesion.png" alt=""> Cerrar Sesión</a></li>
+            </ul>
+            </nav>
+        </div>
+
+        <div class="content-container">
+            <div class="dashboard-header">
+                <h1 id="student-name">Cargando nombre...</h1>
+                <p id="student-details">Cargando detalles...</p>
+            </div>
+
+            <div class="summary-cards">
+                <div class="card overall-average-card">
+                    <h3>Promedio General</h3>
+                    <p id="overall-average">0.00</p>
+                </div>
+                <div class="card period-status-card">
+                    <h3>Estado del Período</h3>
+                    <p id="period-status">Cargando...</p>
+                </div>
+                <div class="card overall-performance-summary-card">
+                    <h3>Resumen de Rendimiento</h3>
+                    <p id="overall-performance-summary">Cargando...</p>
+                </div>
+            </div>
+
+            <div class="academic-performance-section">
+                <h2>Rendimiento Académico por Materia</h2>
+                <div id="academic-performance-container" class="academic-performance-container">
+                    <!-- Las tarjetas de rendimiento por materia se insertarán aquí por JavaScript -->
+                    <p>Cargando rendimiento académico...</p>
+                </div>
+            </div>
+
+            <div class="detailed-grades-section">
+                <h2>Notas Detalladas</h2>
+                <div id="detailed-grades-container">
+                    <!-- Las notas detalladas se insertarán aquí por JavaScript -->
+                    <p>Cargando notas detalladas...</p>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2>Gráfico de Rendimiento</h2>
+                <div style="height: 400px;"> <!-- Contenedor con altura fija para la gráfica -->
+                    <canvas id="performance-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Colegio San Juan Bosco. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../lib/chart/chart.min.js"></script>
+    <script src="../js/estu.js"></script>
+</body>
+</html>

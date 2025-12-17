@@ -1,0 +1,1591 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.menu-container { width: 250px; background: #fff; height: calc(100vh - 50px); position: fixed; top: 50px; left: 0; transition: transform 0.3s ease; z-index: 1000; overflow-y: auto; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+.menu-toggle { background-color: #DABE43; border: none; border-radius: 50%; cursor: pointer; display: none; }
+.menu-toggle img { width: 24px; height: 24px; }
+.profile { text-align: center; padding: 25px; }
+.profile img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+.profile-info h3 { margin-bottom: 5px; color: #333; }
+.profile-info p { color: #666; font-size: 14px; }
+.menu ul { list-style: none; padding: 0; margin: 0; }
+.menu ul li a { text-decoration: none; color: #333; display: flex; align-items: center; padding: 12px 25px; font-size: 15px; }
+.menu ul li a:hover { background: #f5f5f5; }
+.menu ul li a img { width: 20px; height: 20px; margin-right: 12px; }
+/* General styles for the academic management module */
+
+:root {
+    --primary-color: #116572; /* Azul oscuro, para títulos y elementos principales */
+    --secondary-color: #569539; /* Verde, para botones de éxito y acentos */
+    --accent-color: #DABE43; /* Amarillo/Dorado, para top-bar, menu-toggle, footer */
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #e0e0e0;
+    --background-light: #f8f9fa; /* Para fondos de secciones */
+    --background-body: #eef2f6; /* Fondo general del body */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.12);
+    --danger-color: #4c4637;
+    --white: #ffffff;
+}
+
+.form-section,
+.table-section {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+    margin-bottom: 30px;
+}
+
+.form-section h2,
+.table-section h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: all 0.3s ease; /* Add transition */
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Use primary color for focus */
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2); /* More pronounced shadow */
+}
+
+/* Styling for optgroup in dropdowns */
+optgroup {
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 5px 0;
+}
+
+optgroup option {
+    font-weight: normal;
+    color: var(--text-color);
+    padding-left: 15px; /* Indent options within optgroup */
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    color: var(--text-color);
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: var(--background-light);
+}
+
+.data-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-section,
+    .table-section {
+        padding: 15px;
+    }
+
+    .form-section h2,
+    .table-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-control,
+    .btn {
+        font-size: 0.85rem;
+    }
+
+    .data-table {
+        font-size: 0.8rem;
+    }
+}
+
+/*
+ * Styles from periodos_academicos.css 
+ */
+
+/* Styles for the Academic Periods Management section */
+
+/* Reusing general card and form styles from admin.css or gestion_academica.css */
+
+/* Specific adjustments for period table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    color: var(--text-color);
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: var(--background-light);
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Buttons within the table */
+.btn-info {
+    background-color: #17a2b8; /* Bootstrap info blue */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* Ensure btn-danger is consistent */
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+    margin-left: 5px; /* Space between buttons */
+}
+
+.btn-danger:hover {
+    background-color: #2196f3;
+    color: white;
+}
+
+/* Form specific styles (reusing .form-group, .form-control from admin.css) */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+}
+
+/* General button styles (reusing .btn, .btn-primary, .btn-secondary from admin.css) */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* --- Estilos de admin.css añadidos para la consolidación --- */
+
+
+/* Estilos Generales y Reset */
+
+:root {
+    --primary-color: #0D164B; /* Azul oscuro, para títulos y elementos principales */
+    --secondary-color: #569539; /* Verde, para botones de éxito y acentos */
+    --accent-color: #DABE43; /* Amarillo/Dorado, para top-bar, menu-toggle, footer */
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #e0e0e0;
+    --background-light: #f8f9fa; /* Para fondos de secciones */
+    --background-body: #eef2f6; /* Fondo general del body */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------------- Estilos Generales ------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ------------------------- Barra Superior ------------------------- */
+.top-bar {
+    background-color: #DABE43;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #0D164B; /* Azul oscuro para alto contraste */
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #0D164B; /* Azul oscuro para alto contraste */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+
+
+/* ------------------------- Menú Lateral ------------------------- */
+.menu-container {
+    width: 250px;
+    background: #fff;
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    transform: translateX(0); /* Por defecto visible en pantallas grandes */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.menu-container.active {
+    transform: translateX(0); /* Asegura que esté visible cuando está activo */
+}
+
+.menu-toggle {
+    background-color: #DABE43;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Oculto por defecto en pantallas grandes, se muestra en media query */
+    position: absolute; /* Posicionado absolutamente */
+    left: 20px; /* Anclado a la izquierda */
+    z-index: 1001; /* Mayor que el z-index de top-bar */
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile {
+    text-align: center;
+    padding: 25px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-info h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 15px;
+}
+
+.menu ul li a:hover {
+    background: #f5f5f5;
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+/* ------------------------- Contenido Principal ------------------------- */
+.main-container {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    flex: 1;
+    position: relative; /* Necesario para el contexto de apilamiento */
+    z-index: 1; /* Asegura que esté debajo del menú */
+}
+
+.contenedor_p {
+    display: grid;
+    grid-template-columns: 1fr; /* Cambiado a una sola columna */
+    gap: 20px;
+    justify-content: start; /* Alinea el contenido al inicio del contenedor */
+}
+
+/* ------------------------- Estadísticas ------------------------- */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    color: #0D164B;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.stat-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Fondo para gráfico de estadísticas */
+.bg-secondary {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    position: relative;
+    max-height: 60vh;
+}
+
+.rounded.p-4 {
+    padding: 1.5rem;
+}
+
+/* ------------------------- Lista de Pendientes ------------------------- */
+.pending-list-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.pending-list-container h2 {
+    margin: 0 0 15px;
+    color: #333;
+    font-size: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-task-btn {
+    background-color: #DABE43;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s;
+}
+
+.add-task-btn:hover {
+    background-color: #c9ab2e;
+}
+
+.search-container {
+    margin-bottom: 15px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #DABE43;
+}
+
+/* Formulario de tareas */
+.add-task-form {
+    display: none;
+    margin: 15px 0;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.add-task-form.active {
+    display: block;
+}
+
+.task-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: #DABE43;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.save-btn {
+    color: #fff;
+    background-color: #4CAF50;
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    color: #fff;
+    background-color: #f44336;
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cancel-btn:hover {
+    background-color: #da190b;
+}
+
+/* Lista de tareas */
+.tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s;
+}
+
+.task-item:hover {
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.task-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.task-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.task-checkbox input:checked + .checkmark {
+    background-color: #EBEBEB;
+    border-color: #ADADAD;
+}
+
+.task-checkbox input:checked + .checkmark::after {
+    content: "✓";
+    color: rgb(9, 255, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.edit-btn:hover {
+    color: #2196F3;
+}
+
+.task-actions img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* ------------------------- Agenda ------------------------- */
+.agenda-container {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+.agenda-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+}
+
+.agenda-container h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Agenda Event Colors */
+.evento.color-1 { background-color: #e7f3fe; border-left: 5px solid #4a90e2; }
+.evento.color-2 { background-color: #e8f5e9; border-left: 5px solid #50e3c2; }
+.evento.color-3 { background-color: #fff8e1; border-left: 5px solid #f8c146; }
+.evento.color-4 { background-color: #fde2e2; border-left: 5px solid #f25f5c; }
+.evento.color-5 { background-color: #f3e5f5; border-left: 5px solid #ba68c8; }
+
+.evento {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.evento:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.evento-hora {
+    font-weight: 600;
+    color: #333;
+    margin-right: 15px;
+    min-width: 60px;
+    text-align: right;
+    font-size: 1rem;
+}
+
+.evento-detalle {
+    flex-grow: 1;
+}
+
+.evento-detalle strong {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.evento-detalle p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+.evento-detalle small {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.evento-acciones {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.edit-event-btn, .delete-event-btn {
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.edit-event-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.delete-event-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-event-btn:hover {
+    background-color: #d32f2f;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.event-actions button {
+    border: none;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.event-actions button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.event-actions img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.evento-1 { background-color: #FFF8E1; border-left: 5px solid #FFC107; } /* Amarillo suave */
+.evento-2 { background-color: #E3F2FD; border-left: 5px solid #2196F3; } /* Azul suave */
+.evento-3 { background-color: #E8F5E9; border-left: 5px solid #4CAF50; } /* Verde suave */
+
+/* Formulario de eventos (reutilizando estilos existentes y mejorando) */
+.add-task-form {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    border: 1px solid var(--border-color);
+}
+
+.event-editor-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.event-editor-grid label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.event-editor-grid input[type="text"],
+.event-editor-grid input[type="date"],
+.event-editor-grid input[type="time"],
+.event-editor-grid textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-editor-grid input[type="text"]:focus,
+.event-editor-grid input[type="date"]:focus,
+.event-editor-grid input[type="time"]:focus,
+.event-editor-grid textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(218, 190, 67, 0.2);
+}
+
+.event-editor-grid textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.save-btn, .cancel-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.save-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+}
+
+.save-btn:hover {
+    background-color: #4a8030;
+    transform: translateY(-1px);
+}
+
+.cancel-btn {
+    background-color: #e0e0e0;
+    color: var(--text-color);
+    border: none;
+}
+
+.cancel-btn:hover {
+    background-color: #c9c9c9;
+    transform: translateY(-1px);
+}
+
+/* ------------------------- Lista de tareas ------------------------- */
+.tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s;
+}
+
+.task-item:hover {
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.task-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.task-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.task-checkbox input:checked + .checkmark {
+    background-color: #EBEBEB;
+    border-color: #ADADAD;
+}
+
+.task-checkbox input:checked + .checkmark::after {
+    content: "✓";
+    color: rgb(9, 255, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.edit-btn:hover {
+    color: #2196F3;
+}
+
+.task-actions img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+    background-color: #DABE43;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Added to align with main-container */
+    width: calc(100% - 250px); /* Fill remaining width */
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 992px) {
+    footer {
+        margin-left: 0; /* Remove margin-left on small screens */
+    }
+}
+
+/* ------------------------- Responsive Design ------------------------- */
+@media (max-width: 1200px) {
+    .contenedor_p {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu-container {
+        transform: translateX(-100%);
+        width: 280px;
+        top: 0;
+        height: 100vh;
+    }
+    
+    .menu-container.active {
+        transform: translateX(0);
+    }
+    
+    .main-container {
+        margin-left: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-container, 
+    .agenda-container, 
+    .pending-list-container, 
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .task-actions {
+        opacity: 1;
+    }
+
+    .evento {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .event-actions {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        width: 85vw;
+    }
+    
+    .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .stat-value {
+        font-size: 2.2rem;
+    }
+    
+    footer {
+        font-size: 0.9em;
+    }
+    
+    .add-task-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+/* --- Estilos para Gestión de Periodos Académicos --- */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(218, 190, 67, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4a8030;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--background-light);
+    color: #fff;
+    font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-edit, .btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+.btn-edit {
+    color: #007bff; /* Azul de Bootstrap */
+}
+
+.btn-edit:hover {
+    color: #0056b3;
+}
+
+.btn-delete {
+    color: #dc3545; /* Rojo de Bootstrap */
+    margin-left: 5px;
+}
+
+.btn-delete:hover {
+    color: #c82333;
+}
+
+/*
+ * Styles from periodos_academicos.css 
+ */
+
+/* Styles for the Academic Periods Management section */
+
+/* Reusing general card and form styles from admin.css or gestion_academica.css */
+
+/* Specific adjustments for period table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    color: var(--text-color);
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: var(--background-light);
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Buttons within the table */
+.btn-info {
+    background-color: #17a2b8; /* Bootstrap info blue */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* Ensure btn-danger is consistent */
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+    margin-left: 5px; /* Space between buttons */
+}
+
+/* Form specific styles (reusing .form-group, .form-control from admin.css) */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+}
+
+/* General button styles (reusing .btn, .btn-primary, .btn-secondary from admin.css) */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #DABE43;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ------------------------- Pie de Página ------------------------- */
+footer {
+    background-color: #DABE43;
+    color: white;
+    padding: 20px;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Align with main-container */
+    transition: margin-left 0.3s ease;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* On large screens, display side-by-side */
+@media (min-width: 993px) {
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* On small screens, stack and center */
+@media (max-width: 992px) {
+    footer {
+        margin-left: 0;
+        text-align: center;
+        width: 100%; /* Ensure it takes full width */
+    }
+}

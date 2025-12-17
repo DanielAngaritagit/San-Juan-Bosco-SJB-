@@ -1,0 +1,359 @@
+/* Estilos para padre.php */
+
+/* Contenedor principal de la sección de notas */
+.container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* Botón de imprimir */
+.print-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.print-button:hover {
+    background-color: #0056b3;
+}
+
+/* Encabezado del estudiante */
+.student-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+}
+
+.student-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ccc;
+}
+
+.student-info h2 {
+    margin: 0;
+    color: #333;
+}
+
+.student-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Tabla de calificaciones */
+.grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.grades-table th,
+.grades-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.grades-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.grades-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.grades-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Tarjetas de resumen */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Tags de desempeño */
+.performance-tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.performance-tag.excelente {
+    background-color: #28a745; /* Verde */
+}
+
+.performance-tag.bueno {
+    background-color: #17a2b8; /* Azul claro */
+}
+
+.performance-tag.promedio {
+    background-color: #ffc107; /* Amarillo */
+}
+
+.performance-tag.bajo {
+    background-color: #dc3545; /* Rojo */
+}
+
+/* Estilos del menú, top-bar y footer (copiados de cal_padre.css) */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: inherit;
+    user-select: text;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    gap: 5px;
+    padding: 0 5px;
+    position: relative;
+}
+
+.content-container {
+    flex: 1;
+    padding: 20px;
+    margin-left: 260px;
+    transition: margin 0.3s ease;
+}
+
+.top-bar {
+    background-color: #0C154B;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-container {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    height: calc(100vh - 50px);
+    z-index: 999;
+}
+
+.menu-toggle {
+    background-color: #0C154B;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    padding: 8px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #c9a932;
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.profile {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.25rem;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #888;
+    font-size: 0.875rem;
+}
+
+.notifications-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.notifications-container button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+}
+
+.notifications-container button:hover {
+    opacity: 0.8;
+}
+
+.notifications-container button img {
+    width: 24px;
+    height: 24px;
+}
+
+.notifications-container button span {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.correo-panel, 
+.notifications-panel {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    min-width: 250px;
+    display: none;
+    z-index: 1001;
+}
+
+.correo-panel.active, 
+.notifications-panel.active {
+    display: block;
+}
+
+footer {
+    background-color: #0C154B;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Media Queries Generales */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-container {
+        left: -250px;
+        height: calc(100vh - 50px);
+        top: 50px;
+    }
+    
+    .menu-container.active {
+        transform: translateX(250px);
+    }
+
+    .content-container {
+        margin-left: 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-controls {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}

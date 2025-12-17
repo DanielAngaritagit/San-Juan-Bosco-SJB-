@@ -1,0 +1,342 @@
+:root {
+    --lima-primario: #4CAF50;
+    --dorado-secundario: #DABE43;
+    --fondo-blanco: #FFFFFF;
+    --fondo-gris: #F8F9FA;
+    --texto-oscuro: #2D3748;
+    --verde-estado: #4CAF50;
+    --rojo-estado: #EF5350;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fondo-gris);
+    margin: 0;
+    color: var(--texto-oscuro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    background: var(--lima-primario);
+    height: 70px;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra);
+}
+
+.menu-container {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    height: calc(100vh - 70px);
+    z-index: 999;
+}
+
+.menu-toggle {
+    background-color: var(--lima-primario);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+.menu ul li a:hover {
+    background: rgba(218, 190, 67, 0.1);
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.profile {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #DABE43;
+}
+
+.profile-info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.notifications-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.notifications-container button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notifications-container button:hover {
+    opacity: 0.8;
+}
+
+.notifications-container button img {
+    width: 24px;
+    height: 24px;
+}
+
+.notifications-container button span {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.correo-panel, 
+.notifications-panel {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    min-width: 250px;
+    display: none;
+    z-index: 1001;
+}
+
+.main-content {
+    margin-top: 70px;
+    margin-left: 250px;
+    padding: 2rem;
+    flex: 1;
+}
+
+.csjb-card {
+    background: var(--fondo-blanco);
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--sombra);
+    margin-bottom: 1.5rem;
+}
+
+.card-header-csjb {
+    padding: 1.5rem;
+    border-bottom: 3px solid var(--lima-primario);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--lima-primario);
+}
+
+.csjb-input {
+    border: 2px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.csjb-input:focus {
+    border-color: var(--lima-primario);
+    box-shadow: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.csjb-btn {
+    background: var(--lima-primario);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.grades-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.75rem;
+    table-layout: auto;
+}
+
+.grades-table thead th {
+    background: var(--lima-primario);
+    color: white;
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.grades-table tbody td {
+    background: var(--fondo-blanco);
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        padding: 1.5rem;
+    }
+    
+    .csjb-card {
+        margin-bottom: 1rem;
+    }
+    
+    .grades-table th, 
+    .grades-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu-container {
+        width: 200px;
+    }
+    
+    .main-content {
+        margin-left: 200px;
+    }
+    
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .card-header-csjb {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    
+    .menu-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 70px;
+        display: none;
+    }
+    
+    .menu-container.active {
+        display: block;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    #registroForm .col-md-1,
+    #formTareas .col-md-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .grades-table {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 0.5rem;
+    }
+    
+    #registroForm .col-md-4,
+    #registroForm .col-md-3,
+    #formTareas .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    #registroForm button,
+    #formTareas button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .grades-table {
+        font-size: 0.8rem;
+    }
+    
+    .grades-table th, 
+    .grades-table td {
+        padding: 8px;
+    }
+    
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}

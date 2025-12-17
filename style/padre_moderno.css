@@ -1,0 +1,491 @@
+/* Estilos para padre.php - Diseño Moderno */
+
+/* Variables de color para fácil personalización */
+:root {
+    --primary-color: #005A9C; /* Azul oscuro principal */
+    --secondary-color: #00A9E0; /* Azul claro para acentos */
+    --background-color: #F0F2F5; /* Gris claro para el fondo */
+    --card-background: #FFFFFF; /* Blanco para las tarjetas */
+    --text-color: #333333; /* Color de texto principal */
+    --text-secondary-color: #666666; /* Color de texto secundario */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos generales del contenedor de contenido */
+.content-container {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* Selector de estudiante */
+.child-selector-container {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#child-selector {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    flex-grow: 1;
+    background-color: #fff;
+}
+
+/* Encabezado del estudiante */
+.student-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #787586, #c1b7ff);
+    color: white;
+    border-radius: 12px;
+}
+
+.student-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    border: 4px solid white;
+}
+
+.student-info h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.student-info p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Tarjetas de resumen */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: var(--card-background);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #0c154b;
+    margin-top: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid #787586;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Tags de desempeño */
+.performance-tag {
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.performance-tag.excelente { background-color: var(--warning-color); }
+.performance-tag.bueno { background-color: #003c28; }
+.performance-tag.promedio { background-color: var(--warning-color); }
+.performance-tag.bajo { background-color: var(--danger-color); }
+
+/* Estilos del Acordeón de Calificaciones */
+#grades-accordion-container {
+    margin-top: 2rem;
+}
+
+.accordion-item {
+    background-color: var(--card-background);
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    background-color: var(--card-background);
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-header:hover {
+    background-color: #f7f7f7;
+}
+
+.accordion-item.active .accordion-header {
+    background-color: #f0f8ff;
+}
+
+.subject-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0c154b;
+}
+
+.professor-name, .last-update {
+    font-size: 0.9rem;
+    color: var(--text-secondary-color);
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+    color: #787586;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 1.5rem;
+    background-color: #fafafa; /* Fallback color */
+}
+
+.accordion-item.active .accordion-content {
+    padding: 1.5rem;
+    background: linear-gradient(to bottom, #fdfdfd, #f6f6f6);
+    box-shadow: inset 0 4px 8px -4px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e9e9e9;
+}
+
+/* Estilos para la tabla de detalles de calificaciones */
+.grades-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden; /* Para que el borde redondeado se aplique a la tabla */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.grades-detail-table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.grades-detail-table tbody tr {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.grades-detail-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.grades-detail-table tbody tr:hover {
+    background-color: #f4f8ff;
+}
+
+.grades-detail-table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.grades-detail-table td:nth-child(3) { /* Columna de la Nota */
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.grades-detail-table td:nth-child(4) { /* Columna del Comentario */
+    font-style: italic;
+    color: var(--text-secondary-color);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Estilos del menú, top-bar y footer (preservados de padre.css) */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    gap: 5px;
+    padding: 0 5px;
+    position: relative;
+}
+
+.content-container {
+    flex: 1;
+    padding: 20px;
+    margin-left: 260px;
+    transition: margin 0.3s ease;
+}
+
+.top-bar {
+    background-color: #0C154B;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Changed to space-between */
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+
+
+.menu-container { width: 250px; background: #fff; height: calc(100vh - 50px); position: fixed; top: 50px; left: 0; transition: transform 0.3s ease; z-index: 1000; overflow-y: auto; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+.menu-toggle { background-color: #DABE43; border: none; border-radius: 50%; cursor: pointer; display: none; }
+.menu-toggle img { width: 24px; height: 24px; }
+.profile { text-align: center; padding: 25px; }
+.profile img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+.profile-info h3 { margin-bottom: 5px; color: #333; }
+.profile-info p { color: #666; font-size: 14px; }
+.menu ul { list-style: none; padding: 0; margin: 0; }
+.menu ul li a { text-decoration: none; color: #333; display: flex; align-items: center; padding: 12px 25px; font-size: 15px; }
+.menu ul li a:hover { background: #f5f5f5; }
+.menu ul li a img { width: 20px; height: 20px; margin-right: 12px; }
+
+
+footer {
+    background-color: #0C154B;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Added to align with main-container */
+    width: calc(100% - 250px); /* Fill remaining width */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+/* On large screens, display side-by-side */
+@media (min-width: 993px) {
+    footer {
+        flex-direction: row; /* En pantallas grandes, mostrar en fila */
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px; /* Asegurar padding consistente */
+    }
+}
+
+/* On small screens, stack and center */
+@media (max-width: 768px) { /* Unificar con el breakpoint del content-container */
+    footer {
+        margin-left: 0;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Media Queries Generales */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-container {
+        left: -250px;
+        height: calc(100vh - 50px);
+        top: 50px;
+    }
+    
+    .menu-container.active {
+        transform: translateX(250px);
+    }
+
+    .content-container {
+        margin-left: 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-controls {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styles for the new two-level accordion */
+.accordion-item-area {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.accordion-header-area {
+    background-color: #f7f7f7;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.accordion-content-area {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.accordion-item-subject {
+    margin-bottom: 5px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.accordion-header-subject {
+    background-color: #fafafa;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content-subject {
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.area-name {
+    font-size: 1.2em;
+}
+
+.subject-name {
+    font-weight: bold;
+}
+
+.professor-name {
+    font-style: italic;
+    color: #555;
+}
+
+.accordion-icon-area, .accordion-icon-subject {
+    transition: transform 0.3s ease;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+    position: absolute; /* Added for absolute centering */
+    left: 50%; /* Added for absolute centering */
+    transform: translateX(-50%); /* Added for absolute centering */
+}
+

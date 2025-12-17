@@ -1,0 +1,316 @@
+/* ===================================================================
+   Hoja de Estilos Base para la Maquetación del Módulo de Profesor
+   (Extraído de profesor.css y adaptado para asistencia.php)
+   =================================================================== */
+
+/* Reset y generales */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f6fa;
+    color: #222;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex; /* Added for sticky footer */
+    flex-direction: column; /* Added for sticky footer */
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #4CAF50;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Standardized z-index */
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Contenedor Principal (Menú + Contenido) */
+.main-container {
+    display: flex;
+    width: 100%;
+    flex: 1; /* Added for sticky footer */
+}
+
+/* Menú Lateral */
+.menu-container {
+    width: 250px;
+    background: #fff;
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 101; /* Standardized z-index */
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.menu-toggle {
+    background-color: #4caf50;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    padding: 8px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile {
+    text-align: center;
+    padding: 25px;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-info h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 15px;
+}
+
+.menu ul li a:hover {
+    background: #f5f5f5;
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+/* Contenido */
+.content-container {
+    flex: 1;
+    padding: 1rem 2rem 2rem 2rem;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.content-container.full-width {
+    margin-left: 0;
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    min-height: 50px;
+    font-size: 1em;
+    transition: all 0.2s;
+    text-align: center;
+    word-break: break-word;
+}
+
+footer p {
+    margin: 2px 0;
+    max-width: 100%;
+    word-break: break-word;
+    text-align: center;
+}
+
+
+@media (max-width: 992px) {
+    footer {
+        width: 100%;
+        font-size: 0.95em;
+        padding: 10px 5px;
+    }
+    footer p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 0.8em;
+        padding: 8px 2px;
+    }
+    footer p {
+        font-size: 0.8em;
+    }
+}
+
+/* ===================================================================
+   Estilos Específicos de Asistencia (movidos de inline) 
+   =================================================================== */
+#lista-estudiantes .student-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+#lista-estudiantes .student-row:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.attendance-options label {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* ===================================================================
+   Media Queries para Responsividad (Asistencia)
+   =================================================================== */
+
+/* Responsividad del menú (estandarizado) */
+@media (max-width: 800px) {
+    .top-bar {
+        position: relative;
+    }
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 102;
+    }
+    .menu-container {
+        transform: translateX(-100%);
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    }
+    .menu-container.active {
+        transform: translateX(0);
+    }
+    .content-container {
+        margin-left: 0;
+    }
+    footer {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        width: 80vw;
+        max-width: 250px;
+    }
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+    .profile h3 {
+        font-size: 1rem;
+    }
+    .profile p {
+        font-size: 0.75rem;
+    }
+    .menu ul li a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .menu ul li a img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Reglas específicas para el contenido de asistencia */
+@media (max-width: 767px) {
+    .form-group .form-control-lg {
+        font-size: 1rem;
+        padding: 0.5rem 0.75rem;
+    }
+    #lista-estudiantes .student-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+    }
+    #lista-estudiantes .student-row > span:first-child {
+        margin-bottom: 0.5rem;
+    }
+    .attendance-options {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0.5rem;
+    }
+    .attendance-options label {
+        margin-left: 0;
+    }
+    .table-responsive { /* Ensure table scrolls horizontally if needed */
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header p {
+        font-size: 0.9rem;
+    }
+}

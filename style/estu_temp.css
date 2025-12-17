@@ -1,0 +1,261 @@
+
+/* ===================================================================
+   Estilos TEMPORALES para Estudiante (estu_temp.css) - Diseño Dashboard
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   1. Variables y Estilos Base (Copiado de estu.css)
+   ------------------------------------------------------------------- */
+:root {
+    --primary-color: #007bff;
+    --primary-color-dark: #0056b3;
+    --secondary-color: #6c757d;
+    --background-color: #f4f7f9;
+    --surface-color: #ffffff;
+    --text-color: #212529;
+    --text-muted-color: #6c757d;
+    --border-color: #e9ecef;
+    --menu-width: 250px;
+    --menu-width-collapsed: 0px;
+    --header-height: 50px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}     
+
+/* -------------------------------------------------------------------
+   2. Maquetación Principal (Copiado de estu.css)
+   ------------------------------------------------------------------- */
+.top-bar {
+    background-color: #6c757d;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #0D164B; /* Azul oscuro para alto contraste */
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #0D164B; /* Azul oscuro para alto contraste */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+.main-container { display: flex; flex: 1; position: relative; }
+.menu-container { background-color: var(--surface-color); width: var(--menu-width); height: calc(100vh - var(--header-height)); position: fixed; top: var(--header-height); left: 0; transform: translateX(0); transition: transform 0.3s ease, width 0.3s ease; border-right: 1px solid var(--border-color); box-shadow: 2px 0 5px rgba(0,0,0,0.05); z-index: 999; overflow-y: auto; }
+.content-container { flex: 1; padding: clamp(1rem, 4vw, 2.5rem); margin-left: var(--menu-width); transition: margin-left 0.3s ease; }
+footer {
+    background-color: #858e99;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Added to align with main-container */
+    width: calc(100% - 250px); /* Fill remaining width */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+/* -------------------------------------------------------------------
+   3. Componentes Estructurales (Copiado de estu.css)
+   ------------------------------------------------------------------- */
+.menu-toggle { display: none; background: transparent; border: none; cursor: pointer; }
+.menu-toggle img { width: 24px; height: 24px; }
+.profile { padding: 1.5rem; text-align: center; border-bottom: 1px solid var(--border-color); }
+.profile img { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover; }
+.profile-info h3 { margin: 1rem 0 0.25rem; font-size: 1.2rem; }
+.profile-info p { margin: 0; color: var(--text-muted-color); }
+.menu ul { list-style: none; padding: 1rem 0; margin: 0; }
+.menu ul li a { display: flex; align-items: center; padding: 0.8rem 1.5rem; text-decoration: none; color: var(--text-color); transition: background-color 0.2s ease, color 0.2s ease; }
+.menu ul li a:hover { background-color: #e9ecef; color: var(--primary-color); }
+.menu ul li a img { width: 20px; height: 20px; margin-right: 1rem; }
+
+/* ===================================================================
+   NUEVO DISEÑO DE CONTENIDO - DASHBOARD INTEGRADO
+   =================================================================== */
+
+/* --- Header del Dashboard --- */
+.dashboard-header {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    margin: -2.5rem -2.5rem 2.5rem -2.5rem; /* Extenderse para ocupar el padding del contenedor */
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+    color: white;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+}
+.dashboard-header h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; font-weight: 700; }
+.dashboard-header p { font-size: clamp(1rem, 2.5vw, 1.2rem); margin: 0.5rem 0 0; opacity: 0.9; }
+
+/* --- Panel de Estadísticas (Reemplaza .summary-cards) --- */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px; /* Pequeño gap para las líneas separadoras */
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    margin-bottom: 2.5rem;
+    overflow: hidden; /* Para que el border-radius afecte a los hijos */
+    border: 1px solid var(--border-color);
+}
+
+.card {
+    background-color: var(--surface-color);
+    padding: clamp(1.2rem, 4vw, 2rem);
+    text-align: center;
+    position: relative;
+}
+
+/* Líneas separadoras */
+.card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background-color: var(--border-color);
+}
+
+.card h3 {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    margin: 0 0 0.5rem;
+    color: var(--text-muted-color);
+    font-weight: 600;
+}
+.card p {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* --- Secciones de Contenido con Paneles --- */
+.academic-performance-section,
+.detailed-grades-section,
+.chart-section {
+    background-color: var(--surface-color);
+    padding: clamp(1.5rem, 4vw, 2rem);
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    border: 1px solid var(--border-color);
+}
+
+.academic-performance-section h2,
+.detailed-grades-section h2,
+.chart-section h2 {
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    margin: -2rem -2rem 1.5rem -2rem; /* Sacar el título al padding */
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fbfcfe;
+    border-radius: 12px 12px 0 0;
+}
+
+.academic-performance-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(1rem, 4vw, 1.5rem);
+}
+
+/* Estilos para las tarjetas de materia (si existen, basado en el HTML) */
+.periodo-card {
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+/* --- Gráfico --- */
+.chart-section div {
+    height: clamp(300px, 50vh, 450px);
+    width: 100%;
+}
+
+/* ===================================================================
+   4. Media Queries (Copiado y ajustado de estu.css)
+   =================================================================== */
+
+@media (max-width: 992px) {
+    .menu-container { transform: translateX(-100%); }
+    .menu-container.active { transform: translateX(0); box-shadow: 4px 0 15px rgba(0,0,0,0.1); }
+    .content-container { margin-left: var(--menu-width-collapsed); }
+    .menu-toggle { display: block; }
+
+    /* Ajustar padding negativo del header en móvil */
+    .dashboard-header { margin: -1rem -1rem 2rem -1rem; }
+    .academic-performance-section h2, .detailed-grades-section h2, .chart-section h2 {
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    /* En móvil, quitar la línea separadora de las tarjetas de resumen si se apilan */
+    .card:not(:last-child)::after {
+        display: none;
+    }
+    .summary-cards {
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    body { font-size: 18px; }
+    .content-container { max-width: 1400px; margin: 0 auto; padding-left: var(--menu-width); }
+    .main-container { justify-content: center; }
+    .menu-container { left: calc((100vw - 1400px) / 2 - var(--menu-width)); }
+    .top-bar { padding-left: calc((100vw - 1400px) / 2); padding-right: calc((100vw - 1400px) / 2); }
+}
+
+/* ===================================================================
+   5. Estilos de Impresión (Copiado de estu.css)
+   =================================================================== */
+@media print { 
+    body { background-color: #fff; font-size: 11pt; }
+    .top-bar, .menu-container, footer, .print-button, .chart-section, .summary-cards, .menu-toggle { display: none; }
+    .content-container { margin: 0; padding: 0; width: 100%; box-shadow: none; }
+    .dashboard-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; background: none; color: #000; box-shadow: none; border-radius: 0; }
+    .academic-performance-section, .detailed-grades-section { page-break-inside: avoid; background: none; padding: 0; border: none; box-shadow: none; }
+    .academic-performance-section h2, .detailed-grades-section h2 { background: none; border-bottom: 1px solid #ccc; margin: 0 0 1rem 0; padding: 0 0 0.5rem 0; border-radius: 0; }
+    .academic-performance-container { grid-template-columns: 1fr !important; }
+    a { text-decoration: none; color: #000; }
+}

@@ -1,0 +1,37 @@
+
+/* Contenido inicial para el diseño receptivo */
+
+/* Para pantallas extra pequeñas (teléfonos, 600px e inferiores) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Para pantallas pequeñas (tabletas en modo retrato y teléfonos grandes, 600px en adelante) */
+@media only screen and (min-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Para pantallas medianas (tabletas en modo paisaje, 768px en adelante) */
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Para pantallas grandes (laptops/desktops, 992px en adelante) */
+@media only screen and (min-width: 992px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+/* Para pantallas extra grandes (desktops grandes, 1200px en adelante) */
+@media only screen and (min-width: 1200px) {
+    body {
+        font-size: 22px;
+    }
+}

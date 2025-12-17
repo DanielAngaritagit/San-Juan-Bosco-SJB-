@@ -1,0 +1,1 @@
+ALTER TABLE login ADD COLUMN session_id_actual VARCHAR(255);

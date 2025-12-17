@@ -1,0 +1,392 @@
+/* Estilos Generales y Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0D164B; /* Azul oscuro, para títulos y elementos principales */
+    --secondary-color: #569539; /* Verde, para botones de éxito y acentos */
+    --accent-color: #DABE43; /* Amarillo/Dorado, para top-bar, menu-toggle, footer */
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #e0e0e0;
+    --background-light: #f8f9fa; /* Para fondos de secciones */
+    --background-body: #eef2f6; /* Fondo general del body */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------------- Estilos Generales ------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ------------------------- Barra Superior ------------------------- */
+.top-bar {
+    background-color: #6c757d;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff; /* Azul oscuro para alto contraste */
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff; /* Azul oscuro para alto contraste */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* ------------------------- Menú Lateral ------------------------- */
+.menu-container {
+    width: 250px;
+    background: #fff;
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.menu-toggle {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block; /* Asegura que el botón sea visible siempre */
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile {
+    text-align: center;
+    padding: 25px;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-info h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 15px;
+}
+
+.menu ul li a:hover {
+    background: #f5f5f5;
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+/* ------------------------- Contenido Principal ------------------------- */
+.main-container {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    flex: 1;
+    margin-top: 50px;
+    position: relative; /* Necesario para el contexto de apilamiento */
+    z-index: 1; /* Asegura que esté debajo del menú */
+}
+
+.contenedor_p {
+    display: grid;
+    grid-template-columns: 1fr; /* Cambiado a una sola columna */
+    gap: 20px;
+    justify-content: start; /* Alinea el contenido al inicio del contenedor */
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Added to align with main-container */
+    width: calc(100% - 250px); /* Fill remaining width */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        font-size: 0.85rem;
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) and (max-width: 1920px) {
+    footer {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas muy grandes (Full HD, 4K) */
+@media (min-width: 1921px) {
+    footer {
+        padding: 25px;
+        font-size: 1rem;
+    }
+}
+
+/* ------------------------- Responsive Design ------------------------- */
+@media (max-width: 1200px) {
+    .contenedor_p {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu-container {
+        transform: translateX(-100%);
+        width: 280px;
+        top: 0;
+        height: 100vh;
+    }
+    
+    .menu-container.active {
+        transform: translateX(0);
+    }
+    
+    .main-container {
+        margin-left: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        width: 85vw;
+    }
+    
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos específicos para el Perfil de Administrador */
+.profile-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-container h1 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.profile-card, .password-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 30px;
+    overflow: hidden; /* Para contener los bordes */
+}
+
+.profile-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 15px;
+}
+
+.profile-header h2 {
+    margin: 10px 0 5px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.profile-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+}
+
+#change-pic-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#change-pic-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.profile-body, .password-card {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(86, 149, 57, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #4a8030;
+    transform: translateY(-2px);
+}
+
+.password-card h3 {
+    font-size: 1.6em;
+    color: #5f0600;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}

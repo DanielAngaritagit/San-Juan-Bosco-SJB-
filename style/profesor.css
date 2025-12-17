@@ -1,0 +1,252 @@
+/* ===================================================================
+   Hoja de Estilos Base para la Maquetación del Módulo de Profesor
+   =================================================================== */
+
+/* Reset y generales */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f6fa;
+    color: #222;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #4CAF50;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+
+
+/* Contenedor Principal (Menú + Contenido) */
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Menú Lateral */
+.menu-container { width: 250px; background: #fff; height: calc(100vh - 50px); position: fixed; top: 50px; left: 0; transition: transform 0.3s ease; z-index: 1000; overflow-y: auto; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+.menu-toggle { background-color: #4caf50; border: none; border-radius: 50%; cursor: pointer; display: none; }
+.menu-toggle img { width: 24px; height: 24px; }
+.profile { text-align: center; padding: 25px; }
+.profile img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+.profile-info h3 { margin-bottom: 5px; color: #333; }
+.profile-info p { color: #666; font-size: 14px; }
+.menu ul { list-style: none; padding: 0; margin: 0; }
+.menu ul li a { text-decoration: none; color: #333; display: flex; align-items: center; padding: 12px 25px; font-size: 15px; }
+.menu ul li a:hover { background: #f5f5f5; }
+.menu ul li a img { width: 20px; height: 20px; margin-right: 12px; }
+
+
+/* Contenido */
+.content-container {
+    flex: 1;
+    padding: 1rem 2rem 2rem 2rem;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.content-container.full-width {
+    margin-left: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px; /* Reduced from 15px */
+    text-align: center;
+}
+
+/* Responsividad del menú */
+@media (max-width: 991px) {
+    .menu-toggle {
+        display: block; /* Visible en pantallas pequeñas */
+    }
+
+    .menu-container {
+        transform: translateX(-100%);
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    }
+    .menu-container.active {
+        transform: translateX(0);
+    }
+    .content-container {
+        margin-left: 0;
+    }
+}
+
+/* ===================================================================
+   Hoja de Estilos para el Dashboard del Profesor (Corregida)
+   =================================================================== */
+
+/* Tarjetas de estadísticas con la nueva paleta */
+.stat-card {
+    border-radius: 0.75rem;
+    color: #fff;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.stat-card .card-body {
+    padding: 0;
+}
+
+.stat-card i {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    opacity: 0.2;
+}
+
+.stat-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .card-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Colores de fondo para las tarjetas usando la paleta del profesor */
+.stat-card.bg-primary {
+    background-color: #2980b9 !important; /* Azul para la tarjeta principal de Estudiantes */
+}
+
+.stat-card.bg-info {
+    background-color: #27ae60 !important; /* Un verde secundario de la paleta original */
+}
+
+.stat-card.bg-success {
+    background-color: #e67e22 !important; /* Naranja para la tarjeta de Promedio General */
+}
+
+
+/* Estilos para las tarjetas de contenido (gráficos, tareas) */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 1.5rem;
+}
+
+.card-header h5 {
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Estilos para el gráfico */
+#rendimientoCursosChart {
+    max-height: 350px;
+}
+
+/* Estilos para la lista de tareas */
+.list-group-item {
+    border-left: 0;
+    border-right: 0;
+}
+
+.list-group-item:first-child {
+    border-top: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom: 0;
+}
+
+/* Estilos para la agenda */
+#agenda .card-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#agenda .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#agenda .btn-danger {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* Estilos para la tabla de últimas matrículas */
+.table-responsive {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .stat-card .card-text {
+        font-size: 2rem;
+    }
+    .stat-card i {
+        font-size: 3rem;
+    }
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0 auto;
+}

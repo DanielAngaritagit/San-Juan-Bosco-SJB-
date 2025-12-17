@@ -1,0 +1,93 @@
+/* Estilos para hacer que el panel de administrador sea responsive */
+
+/* Estilos base para el contenedor principal */
+.main-container {
+    transition: margin-left 0.3s ease;
+}
+
+/* Cuando el menú está colapsado */
+body.menu-collapsed .main-container {
+    margin-left: 0;
+}
+
+body.menu-collapsed .menu-container {
+    left: -250px; /* Oculta el menú */
+}
+
+/* Media Query para tabletas y pantallas más pequeñas */
+@media (max-width: 992px) {
+    .menu-container {
+        left: -250px; /* Oculta el menú por defecto */
+        position: fixed;
+        z-index: 1000;
+        height: 100%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .main-container {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .top-bar {
+        width: 100%;
+        left: 0;
+    }
+
+    /* Muestra el menú cuando tiene la clase 'active' */
+    .menu-container.active {
+        left: 0;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-item {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+
+    .calendar-agenda-container {
+        flex-direction: column;
+    }
+
+    .calendar-container, .agenda-container {
+        width: 100%;
+    }
+}
+
+/* Media Query para teléfonos móviles */
+@media (max-width: 576px) {
+    .project-info .module-name {
+        display: none; /* Oculta el nombre del módulo en pantallas muy pequeñas */
+    }
+
+    .stat-item {
+        width: 95%;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Estilos para tablas responsivas */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}

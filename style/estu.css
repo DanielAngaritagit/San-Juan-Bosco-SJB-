@@ -1,0 +1,521 @@
+/* ===================================================================
+   Estilos para Estudiante (estu.css) - Enfoque Responsive Total
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   1. Variables y Estilos Base (Root & Body)
+   ------------------------------------------------------------------- */
+:root {
+    --primary-color: #0056b3; /* Un azul más oscuro y profesional */
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa; /* Un gris muy claro para el fondo */
+    --surface-color: #ffffff;
+    --text-color: #212529; /* Texto casi negro para mejor contraste */
+    --text-muted-color: #6c757d;
+    --border-color: #e9ecef; /* Un borde más suave */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --menu-width: 250px;
+    --menu-width-collapsed: 0px;
+    --header-height: 50px;
+    --border-radius: 12px;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.07);
+    --transition-speed: 0.3s;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* -------------------------------------------------------------------
+   2. Maquetación Principal (Layout)
+   ------------------------------------------------------------------- */
+.top-bar {
+    background-color: #6c757d;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff; /* Azul oscuro para alto contraste */
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff; /* Azul oscuro para alto contraste */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    position: relative;
+}
+
+.menu-container {
+    background-color: var(--surface-color);
+    width: var(--menu-width);
+    height: calc(100vh - var(--header-height));
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    transform: translateX(0);
+    transition: transform 0.3s ease, width 0.3s ease;
+    border-right: 1px solid var(--border-color);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.content-container {
+    flex: 1;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    margin-left: var(--menu-width);
+    transition: margin-left 0.3s ease;
+}
+
+/* -------------------------------------------------------------------
+   3. Componentes
+   ------------------------------------------------------------------- */
+
+/* --- Menú y Perfil --- */
+.menu-toggle {
+    display: block; /* Oculto por defecto, visible en mobile */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Asegura que z-index funcione */
+    z-index: 1001; /* Mayor que el z-index de top-bar */
+}
+.menu-toggle img { width: 24px; height: 24px; }
+
+.profile {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.profile img { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
+}
+.profile-info h3 { margin: 1rem 0 0.25rem; font-size: 1.2rem; }
+.profile-info p { margin: 0; color: var(--text-muted-color); }
+
+.menu ul { list-style: none; padding: 1rem 0; margin: 0; }
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.menu ul li a:hover { background-color: #e9ecef; color: var(--primary-color); }
+.menu ul li a img { width: 20px; height: 20px; margin-right: 1rem; }
+
+/* -------------------------------------------------------------------
+   4. ESTILOS DE CONTENIDO MEJORADOS
+   ------------------------------------------------------------------- */
+
+/* --- Header del Dashboard --- */
+.dashboard-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+.dashboard-header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+}
+.dashboard-header p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0;
+    color: var(--text-muted-color);
+}
+
+/* --- Tarjetas de Resumen --- */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 3rem;
+}
+
+.card {
+    background-color: var(--surface-color);
+    padding: 1.75rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.card h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin: 0 0 0.75rem;
+    color: var(--text-muted-color);
+    font-weight: 600;
+}
+.card p {
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.2;
+}
+.period-status-card.aprobando { border-left-color: var(--success-color); }
+.period-status-card.aprobando p { color: var(--success-color); }
+.period-status-card.riesgo { border-left-color: var(--warning-color); }
+.period-status-card.riesgo p { color: var(--warning-color); }
+.period-status-card.reprobando { border-left-color: var(--danger-color); }
+.period-status-card.reprobando p { color: var(--danger-color); }
+
+/* --- Secciones de Contenido --- */
+.academic-performance-section,
+.detailed-grades-section,
+.chart-section {
+    background-color: var(--surface-color);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.academic-performance-section h2,
+.detailed-grades-section h2,
+.chart-section h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+}
+
+/* --- Rendimiento Académico (Tarjetas por materia) - MEJORADO --- */
+.academic-performance-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.materia-card {
+    background-color: #fdfdff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-speed) ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.materia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--primary-color);
+}
+
+.materia-card-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.materia-card-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.materia-card-body .grade {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.materia-card-body .grade.aprobado { color: var(--success-color); }
+.materia-card-body .grade.riesgo { color: var(--warning-color); }
+.materia-card-body .grade.reprobado { color: var(--danger-color); }
+
+.materia-card-footer {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    text-align: center;
+}
+
+/* --- Notas Detalladas (Tabla) - MEJORADO --- */
+.detailed-grades-section .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.detailed-grades-section table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Para forzar scroll en pantallas muy pequeñas */
+}
+
+.detailed-grades-section th,
+.detailed-grades-section td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.detailed-grades-section thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-top: none;
+    border-bottom-width: 2px;
+}
+
+.detailed-grades-section tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.detailed-grades-section tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.detailed-grades-section tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.detailed-grades-section .grade-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    color: #fff;
+    min-width: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+.detailed-grades-section .grade-value.aprobado {
+    background-color: var(--success-color);
+}
+.detailed-grades-section .grade-value.riesgo {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+}
+.detailed-grades-section .grade-value.reprobado {
+    background-color: var(--danger-color);
+}
+
+.print-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1rem;
+}
+.print-button:hover {
+    background-color: #004494;
+}
+
+/* --- Gráfico --- */
+.chart-section div {
+    height: clamp(350px, 50vh, 500px);
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------
+   5. Media Queries (Mobile-First)
+   ------------------------------------------------------------------- */
+
+@media (max-width: 992px) {
+    .menu-container {
+        transform: translateX(-100%);
+    }
+    .menu-container.active {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    }
+    .content-container {
+        margin-left: var(--menu-width-collapsed);
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .summary-cards {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
+    .print-button {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .academic-performance-container {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        font-size: 18px;
+    }
+    .content-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-left: var(--menu-width);
+    }
+    .main-container {
+        justify-content: center;
+    }
+    .menu-container {
+        left: calc((100vw - 1400px) / 2 - var(--menu-width));
+    }
+    .top-bar {
+        padding-left: calc((100vw - 1400px) / 2);
+        padding-right: calc((100vw - 1400px) / 2);
+    }
+}
+
+/* -------------------------------------------------------------------
+   6. Estilos de Impresión
+   ------------------------------------------------------------------- */
+@media print {
+    body {
+        background-color: #fff; font-size: 11pt;
+    }
+    .top-bar, .menu-container, footer, .print-button, .chart-section, .summary-cards, .menu-toggle {
+        display: none;
+    }
+    .content-container {
+        margin: 0; padding: 0; width: 100%; box-shadow: none;
+    }
+    .dashboard-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; }
+    .academic-performance-section, .detailed-grades-section { page-break-inside: avoid; }
+    .academic-performance-container { grid-template-columns: 1fr !important; }
+    a { text-decoration: none; color: #000; }
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Added to align with main-container */
+    width: calc(100% - 250px); /* Fill remaining width */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        font-size: 0.85rem;
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) and (max-width: 1920px) {
+    footer {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas muy grandes (Full HD, 4K) */
+@media (min-width: 1921px) {
+    footer {
+        padding: 25px;
+        font-size: 1rem;
+    }
+}

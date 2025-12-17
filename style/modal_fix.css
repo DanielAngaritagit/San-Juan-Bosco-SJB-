@@ -1,0 +1,23 @@
+/* Modal */
+.modal {
+    display: flex; /* Usar flexbox para centrar */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    position: fixed;
+    z-index: 3000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(44,62,80,0.25);
+}
+
+.modal-contenido {
+    background: #fff;
+    padding: 30px 30px 20px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 420px;
+    max-height: 90vh; /* Limitar altura máxima al 90% del viewport */
+    overflow-y: auto; /* Permitir scroll vertical si el contenido excede la altura máxima */
+    position: relative;
+    box-shadow: 0 4px 24px rgba(44,62,80,0.13);
+}

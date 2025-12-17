@@ -1,0 +1,47 @@
+footer {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-left: 250px; /* Added to align with main-container */
+    width: calc(100% - 250px); /* Fill remaining width */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        font-size: 0.85rem;
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) and (max-width: 1920px) {
+    footer {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas muy grandes (Full HD, 4K) */
+@media (min-width: 1921px) {
+    footer {
+        padding: 25px;
+        font-size: 1rem;
+    }
+}

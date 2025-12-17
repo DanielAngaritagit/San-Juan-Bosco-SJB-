@@ -1,0 +1,497 @@
+@media (max-width: 991px) {
+    .main-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    .content-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+@media (max-width: 600px) {
+    .main-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    .content-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+@media (max-width: 500px) {
+    .main-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    .content-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    max-width: 100%;
+    word-break: break-word;
+    text-align: center;
+    white-space: pre-line;
+}
+
+@media (max-width: 700px) {
+    footer {
+        flex-direction: column;
+        gap: 0.5em;
+        font-size: 0.95em;
+    }
+    footer p {
+        margin: 2px 0;
+    }
+}
+/* ===================================================================
+   Hoja de Estilos Base para la Maquetación del Módulo de Profesor
+   =================================================================== */
+
+/* Reset y generales */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #4CAF50;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+/* Contenedor Principal (Menú + Contenido) */
+.main-container {
+    display: flex;
+    width: 100%;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Menú Lateral */
+.menu-container {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    height: calc(100vh - 50px);
+    z-index: 999;
+}
+
+.menu-toggle {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    padding: 8px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #155724;
+}
+
+.menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+.menu ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.profile {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.25rem;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #888;
+    font-size: 0.875rem;
+}
+
+/* Contenido */
+.content-container {
+    flex: 1;
+    padding: 1rem 2rem 2rem 2rem;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.content-container.full-width {
+    margin-left: 0;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    text-align: center;
+    gap: 2em;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+footer p {
+    margin: 0;
+    max-width: 100%;
+    word-break: break-word;
+    text-align: center;
+    white-space: pre-line;
+}
+
+@media (max-width: 991px) {
+    .main-container {
+        flex-direction: column;
+        padding: 0 !important;
+        width: 100vw !important;
+        min-width: 0 !important;
+    }
+    .content-container {
+        margin-left: 0 !important;
+        padding: 1rem 0.5rem 2rem 0.5rem !important;
+        width: 100vw !important;
+        min-width: 0 !important;
+    }
+    .menu-container {
+        position: static;
+        width: 100vw !important;
+        min-width: 0 !important;
+        height: auto;
+    }
+    footer {
+        width: 100vw !important;
+        margin-left: 0 !important;
+        font-size: 0.92rem;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    footer p {
+        margin: 2px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container, .content-container, .menu-container, footer {
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+    .content-container {
+        padding: 0.5rem 0.2rem 1rem 0.2rem !important;
+    }
+    footer {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 500px) {
+    html, body {
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .main-container, .content-container, .menu-container, footer {
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+    .content-container {
+        padding: 0.2rem 0.1rem 0.5rem 0.1rem !important;
+    }
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+/* Responsividad del menú */
+@media (max-width: 991px) {
+    .menu-toggle {
+        display: block; /* Visible en pantallas pequeñas */
+    }
+
+    .menu-container {
+        transform: translateX(-100%);
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    }
+    .menu-container.active {
+        transform: translateX(0);
+    }
+    .content-container {
+        margin-left: 0;
+    }
+}
+
+/* ===================================================================
+   Hoja de Estilos para el Dashboard del Profesor (Corregida)
+   =================================================================== */
+
+/* Tarjetas de estadísticas con la nueva paleta */
+.stat-card {
+    border-radius: 0.75rem;
+    color: #fff;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.stat-card .card-body {
+    padding: 0;
+}
+
+.stat-card i {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    opacity: 0.2;
+}
+
+.stat-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .card-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Colores de fondo para las tarjetas usando la paleta del profesor */
+.stat-card.bg-primary {
+    background-color: #2980b9 !important; /* Azul para la tarjeta principal de Estudiantes */
+}
+
+.stat-card.bg-info {
+    background-color: #27ae60 !important; /* Un verde secundario de la paleta original */
+}
+
+.stat-card.bg-success {
+    background-color: #e67e22 !important; /* Naranja para la tarjeta de Promedio General */
+}
+
+
+/* Estilos para las tarjetas de contenido (gráficos, tareas) */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 1.5rem;
+}
+
+.card-header h5 {
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Estilos para el gráfico */
+#rendimientoCursosChart {
+    max-height: 350px;
+}
+
+/* Estilos para la lista de tareas */
+.list-group-item {
+    border-left: 0;
+    border-right: 0;
+}
+
+.list-group-item:first-child {
+    border-top: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom: 0;
+}
+
+/* Estilos para la agenda */
+#agenda .card-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#agenda .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#agenda .btn-danger {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* Estilos para la tabla de últimas matrículas */
+.table-responsive {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .stat-card .card-text {
+        font-size: 2rem;
+    }
+    .stat-card i {
+        font-size: 3rem;
+    }
+}
+
+.calificaciones-badge {
+    background-color: #238c30;
+}
+
+.calificaciones-badge:hover {
+    background-color: #1a6e24;
+}
+
+.promedio-badge {
+    background-color: #006b0e;
+}
+
+.promedio-badge:hover {
+    background-color: #004a0a;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.project-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.module-name {
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
