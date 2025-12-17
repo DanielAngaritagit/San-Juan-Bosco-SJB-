@@ -16,16 +16,23 @@ El Proyecto SJB es un sistema de gestión escolar basado en la web, diseñado pa
 *   **Interfaz Intuitiva:** Diseño claro y accesible para cada tipo de usuario.
 *   **Optimización de Procesos:** Centraliza la información y agiliza las tareas administrativas y académicas.
 
-## 3. Tecnologías Utilizadas
+## 🚀 Demo y Despliegue (Front Visible)
+
+¡Haz clic en el enlace para ver el sistema funcionando en vivo!
+
+[![Deploy with Vercel]([https://vercel.com/button)](https://barberia-blush.vercel.app)](https://vercel.com/daniel-devs-projects-8a677ee4/san-juan-bosco-sjb/8QtpajBJs6XAN6dK24rWJ24vSBMo)
+---
+
+## 🛠️ Tecnologías Utilizadas
 
 *   **Frontend:**
-    *   HTML5
-    *   CSS3
-    *   JavaScript
+    *   ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+    *   ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+    *   ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 *   **Backend:**
-    *   PHP
+    *   ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 *   **Base de Datos:**
-    *   PostgreSQL
+    *   ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 *   **Librerías:**
     *   jQuery
     *   Font Awesome
