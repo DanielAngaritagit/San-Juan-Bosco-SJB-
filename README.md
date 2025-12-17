@@ -20,7 +20,7 @@ El Proyecto SJB es un sistema de gestión escolar basado en la web, diseñado pa
 
 ¡Haz clic en el enlace para ver el sistema funcionando en vivo!
 
-[![Deploy with Vercel](https://san-juan-bosco-sjb.vercel.app/)
+[![Deploy with Vercel](https://vercel.com/button)](https://san-juan-bosco-sjb.vercel.app)
 ---
 
 ## 🛠️ Tecnologías Utilizadas
