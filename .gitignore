@@ -1,0 +1,4 @@
+# Credenciales locales (nunca al repo)
+php/config.local.php
+.env
+*.log

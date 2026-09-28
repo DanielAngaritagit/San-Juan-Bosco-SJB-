@@ -1,0 +1,4 @@
+# Seguridad: bloquear scripts de prueba y documentos internos en la raíz.
+<FilesMatch "^(create_user_temp\.php|\.gitignore|.*\.md)$">
+    Require all denied
+</FilesMatch>
